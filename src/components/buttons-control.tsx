@@ -9,7 +9,7 @@ const Buttons: React.FC<ButtonProps> = ({ setActive, active }) => {
   const BUTTONS = ["Icon", "BackGround"];
 
   return (
-    <div className="flex  flex-col justify-between w-2/12 border-r min-h-screen p-3">
+    <div className="flex  flex-col justify-between w-full border-r h-screen p-3">
       <div className="flex flex-col gap-3">
         {BUTTONS.map((itm, idx) => (
           <Button
