@@ -1,6 +1,10 @@
 import { Button } from "./ui/button";
 
-const Header = () => {
+interface HeaderProps {
+  DownloadIcon: (date: any) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ DownloadIcon }) => {
   return (
     <div className="px-2 py-2 flex justify-between border-b shadow-sm  w-full z-50 ">
       <div className="flex gap-2 items-center">
@@ -9,7 +13,7 @@ const Header = () => {
         <h1 className="font-semibold">LogoMaker</h1>
       </div>
 
-      <Button>Download</Button>
+      <Button onClick={() => DownloadIcon(Date.now())}>Download</Button>
     </div>
   );
 };

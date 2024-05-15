@@ -11,21 +11,22 @@ import { useState } from "react";
 export default function Home() {
   const [active, setActive] = useState(0);
   const [updateStorage, setUpdateStorage] = useState({});
+  const [downloadIcon, setDownloadIcon] = useState()
   return (
     <UpdateStorageContext.Provider value={{ updateStorage, setUpdateStorage }}>
       <MaxWidth className="overflow-hidden">
-        <Header />
+        <Header  DownloadIcon={setDownloadIcon}/>
 
         <main className="flex">
           <div className="w-64 fixed">
             <Buttons setActive={setActive} active={active} />
           </div>
-          <div className="ml-64 overflow-y-hidden flex-1 flex">
-            <div className="w-3/12 fixed">
+          <div className="ml-64 overflow-auto flex-1 flex">
+            <div className="w-3/12 ">
               {active === 0 ? <IconController /> : <BackgroundController />}
             </div>
             <div className="w-10/12 ml-52 fixed overflow-hidden px-4">
-              <Preview />
+              <Preview  downloadIcon={downloadIcon}/>
             </div>
           </div>
         </main>

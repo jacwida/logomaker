@@ -4,17 +4,32 @@ import { Slider } from "./ui/slider";
 import ColorsPicker from "./color-picker";
 import { useContext, useEffect, useState } from "react";
 import { UpdateStorageContext } from "@/context/update-storage-context";
+import AllIcons from "./all-icons";
 
 const IconController = () => {
-  const [size, setSize] = useState(20);
-  const [rotate, setRotate] = useState(0);
-  const [borderWidth, setBorderWidth] = useState(2.5);
-  const [borderColor, setBorderColor] = useState("#fff");
-  const [fillColor, setFillColor] = useState("#fff");
-  const [fillOpacity, setFillOpacity] = useState(0);
-
   //@ts-ignore
   const storageValue = JSON.parse(localStorage.getItem("value"));
+  const [size, setSize] = useState(storageValue ? storageValue?.iconSize : 20);
+  const [rotate, setRotate] = useState(
+    storageValue ? storageValue?.iconRotate : 0
+  );
+  const [borderWidth, setBorderWidth] = useState(
+    storageValue ? storageValue?.iconBorderWidth : 2.5
+  );
+  const [borderColor, setBorderColor] = useState(
+    storageValue ? storageValue?.iconBorderColor : "#fff"
+  );
+  const [fillColor, setFillColor] = useState(
+    storageValue ? storageValue?.iconFillColor : "#fff"
+  );
+  const [fillOpacity, setFillOpacity] = useState(
+    storageValue ? storageValue?.iconFillOpacity : 0
+  );
+
+  const [icon, setIcon] = useState(
+    storageValue ? storageValue?.icon : "Activity"
+  );
+
   //@ts-ignore
   const { updateStorage, setUpdateStorage } = useContext(UpdateStorageContext);
 
@@ -27,12 +42,12 @@ const IconController = () => {
       iconBorderColor: borderColor,
       iconFillColor: fillColor,
       iconFillOpacity: fillOpacity,
-      icon: "Activity",
+      icon: icon,
     };
 
     setUpdateStorage(updatedValue);
     localStorage.setItem("value", JSON.stringify(updatedValue));
-  }, [size, rotate, borderColor, fillColor, borderWidth]);
+  }, [size, rotate, borderColor, fillColor, borderWidth, icon]);
 
   return (
     <div className="w-full border-r p-3 flex flex-col space-y-5 overflow-auto h-screen pb-4">
@@ -40,9 +55,8 @@ const IconController = () => {
         <p className="text-sm">Icon</p>
         <p className="text-sm">Activity</p>
       </div>
-      <Button variant="secondary" size="icon" className="my-1 py-4  font-bold">
-        <Activity className="w-5 h-5" />
-      </Button>
+
+      <AllIcons selectedIcon={setIcon} />
 
       <div className="space-y-2">
         <div className="flex justify-between items-center">
