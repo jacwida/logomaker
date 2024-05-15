@@ -32,7 +32,7 @@ const BackGroundController = () => {
   }, [rounded, padding, color]);
 
   return (
-    <div className="w-full border-r p-3 flex flex-col space-y-5 overflow-auto h-screen pb-4">
+    <div className="w-full border-r p-3 flex flex-col gap-8 overflow-auto h-screen ">
       <div className="space-y-2">
         <div className="flex justify-between items-center">
           <p className="text-sm">Rounded</p>

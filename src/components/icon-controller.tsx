@@ -50,7 +50,7 @@ const IconController = () => {
   }, [size, rotate, borderColor, fillColor, borderWidth, icon]);
 
   return (
-    <div className="w-full border-r p-3 flex flex-col space-y-5 overflow-auto h-screen pb-4">
+    <div className="w-full border-r p-3 flex flex-col gap-8 overflow-auto h-screen">
       <div className="flex justify-between">
         <p className="text-sm">Icon</p>
         <p className="text-sm">Activity</p>
@@ -125,7 +125,7 @@ const IconController = () => {
           onValueChange={(e) => setFillOpacity(e[0])}
         />
       </div>
-      <div className="space-y-2">
+      <div className="space-y-4">
         <div className="flex justify-between items-center">
           <p className="text-sm">Fill Color</p>
         </div>

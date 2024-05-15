@@ -17,7 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(" bg-background antialiased", font.className)}>
+      <body
+        className={cn(
+          " bg-background antialiased overflow-y-hidden",
+          font.className
+        )}
+      >
         {children}
       </body>
     </html>

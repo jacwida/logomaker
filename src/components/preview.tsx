@@ -162,7 +162,7 @@ const Preview: React.FC<PreviewProps> = ({ downloadIcon }) => {
   return (
     <div className="w-full p-3 h-screen flex justify-center items-center">
       <div
-        className="w-[600px]  h-[600px] bg-slate-100 border-dashed border"
+        className="w-[500px]  h-[500px] bg-slate-100 border-dashed border"
         style={{
           //@ts-ignore
           padding: storageValue?.bgPadding,
