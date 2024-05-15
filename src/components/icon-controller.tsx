@@ -1,5 +1,3 @@
-import { Activity } from "lucide-react";
-import { Button } from "./ui/button";
 import { Slider } from "./ui/slider";
 import ColorsPicker from "./color-picker";
 import { useContext, useEffect, useState } from "react";
@@ -53,7 +51,7 @@ const IconController = () => {
     <div className="w-full border-r p-3 flex flex-col gap-8 overflow-auto h-screen">
       <div className="flex justify-between">
         <p className="text-sm">Icon</p>
-        <p className="text-sm">Activity</p>
+        <p className="text-sm">{icon}</p>
       </div>
 
       <AllIcons selectedIcon={setIcon} />

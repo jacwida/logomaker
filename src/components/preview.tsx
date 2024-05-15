@@ -53,6 +53,7 @@ const Preview: React.FC<PreviewProps> = ({ downloadIcon }) => {
     const svgElement = createSvgElementFromDiv(downloadlogodiv);
 
     const serializer = new XMLSerializer();
+    //@ts-ignore
     const svgBlob = new Blob([serializer.serializeToString(svgElement)], {
       type: "image/svg+xml",
     });
@@ -64,9 +65,13 @@ const Preview: React.FC<PreviewProps> = ({ downloadIcon }) => {
     URL.revokeObjectURL(svgUrl);
   };
 
+  //@ts-ignore
   const createSvgElementFromDiv = (div) => {
+    //@ts-ignore
     const { bgColor, bgRounded, iconFillColor, icon, iconSize, iconRotate } =
       storageValue;
+
+    //@ts-ignore
     const LucidIcon = icons[icon];
 
     if (!LucidIcon) {

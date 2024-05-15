@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 const Buttons: React.FC<ButtonProps> = ({ setActive, active }) => {
-  const BUTTONS = ["Icon", "BackGround"];
+  const BUTTONS = ["Icon", "Text", "BackGround"];
 
   return (
     <div className="flex  flex-col justify-between w-full border-r h-screen p-3">

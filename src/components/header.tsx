@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface HeaderProps {
@@ -13,7 +14,13 @@ const Header: React.FC<HeaderProps> = ({ DownloadIcon }) => {
         <h1 className="font-semibold">LogoMaker</h1>
       </div>
 
-      <Button onClick={() => DownloadIcon(Date.now())}>Download</Button>
+      <Button
+        onClick={() => DownloadIcon(Date.now())}
+        className="flex gap-2 font-semibold"
+      >
+        Download
+        <ChevronDown className="w-4 h-4" />
+      </Button>
     </div>
   );
 };
